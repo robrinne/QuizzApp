@@ -1,65 +1,74 @@
 package models;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import utils.Constant;
 
 public class Memory
 {
-    private Carte[][] map;
+    private List<Carte> map;
 
-    public void Init()
+    public void init()
     {
-        this.map = new Carte[Constant.MEMORY_SIZE_WIDTH][Constant.MEMORY_SIZE_HEIGHT];
-        Log.e("INIT","TEST");
-        InitMap();
-        Log.e("INIT","FINISH");
+        this.map = new ArrayList<>();
+        initMap();
     }
 
-    public void InitMap()
+    private void initMap()
     {
-        int l = 0;
-        int h = 0;
-        for (int i = 0; i < (Constant.MEMORY_SIZE_HEIGHT / 2) * Constant.MEMORY_SIZE_WIDTH; i++)
+        for (int i = 0; i < 2; i++)
         {
-            Log.e("TEST", ""+i);
-            this.map[l][h] = new Carte(i, Constant.MEMORY_URLS[i]);
-            this.map[l][h + (Constant.MEMORY_SIZE_HEIGHT / 2)] = new Carte(i, Constant.MEMORY_URLS[i]);
-            if (h < Constant.MEMORY_SIZE_WIDTH/2)
+            for (int j = 0; j < Constant.MEMORY_SIZE_WIDTH * Constant.MEMORY_SIZE_HEIGHT / 2; j++)
             {
-                h++;
+                String nb = "";
+                switch (j)
+                {
+                    case 0: nb = Constant.NUMPOKEDEX_POKEMON1;
+                    break;
+                    case 1: nb = Constant.NUMPOKEDEX_POKEMON2;
+                    break;
+                    case 2: nb = Constant.NUMPOKEDEX_POKEMON3;
+                    break;
+                    case 3: nb = Constant.NUMPOKEDEX_POKEMON4;
+                    break;
+                    case 4: nb = Constant.NUMPOKEDEX_POKEMON5;
+                    break;
+                    case 5: nb = Constant.NUMPOKEDEX_POKEMON6;
+                    break;
+                    default: nb = "150";
+                    break;
+                }
+                map.add(new Carte(j, String.format(Constant.MEMORY_URLS, nb)));
             }
-            else if (l < (Constant.MEMORY_SIZE_HEIGHT))
-            {
-                h = 0;
-                l++;
-            }
+        }
+        shuffleMap();
+    }
+
+    private void shuffleMap()
+    {
+        for (int i=0; i<50; i++)
+        {
+            shuffleOnce();
         }
     }
 
-    @Override public String toString()
+    private void shuffleOnce()
     {
-        String s = "";
-        for (int i = 0; i < Constant.MEMORY_SIZE_WIDTH; i++)
+        int r = (int)((map.size()-1)*Math.random());
+        Carte tmp = map.get(r);
+        int r2 = (int)((map.size()-1)*Math.random());
+        while (r == r2)
         {
-            s += "| ";
-            for (int j = 0; j < Constant.MEMORY_SIZE_HEIGHT; j++)
-            {
-                if (this.getMap()[i][j] != null)
-                {
-                    s += this.getMap()[i][j].getId() + " |";
-                }
-                else
-                {
-                    s += "null |";
-                }
-            }
-            s += "\n";
+            r2 = (int)((map.size()-1)*Math.random());
         }
-        return s;
+        map.set(r, map.get(r2));
+        map.set(r2, tmp);
     }
 
-    public Carte[][] getMap()
-    {
+    public List<Carte> getMap() {
         return map;
     }
 }
