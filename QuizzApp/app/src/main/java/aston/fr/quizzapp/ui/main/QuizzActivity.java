@@ -1,6 +1,7 @@
 package aston.fr.quizzapp.ui.main;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +35,7 @@ public class QuizzActivity extends AppCompatActivity {
     private TextView score;
     public static final String TAG = "Test";
     private Dialog dialog;
-
+    private int point = 0;
     private int number = 0;
 
     @Override
@@ -71,12 +72,12 @@ public class QuizzActivity extends AppCompatActivity {
 
                             if(quizz.getResponse_code() == 0) {
 
-                                Results resultsQuizz = quizz.getResults().get(number);
+                                final Results resultsQuizz = quizz.getResults().get(number);
 
                                 textViewCategory.setText(resultsQuizz.getCategory());
                                 textViewQuestion.setText(resultsQuizz.getQuestion());
 
-                                String[] stringsResponses = new String[1 + resultsQuizz.getIncorrect_answers().length];
+                                final String[] stringsResponses = new String[1 + resultsQuizz.getIncorrect_answers().length];
                                 stringsResponses[0] = resultsQuizz.getCorrect_answer();
 
                                 for(int i=0;i<resultsQuizz.getIncorrect_answers().length;i++) {
@@ -91,25 +92,21 @@ public class QuizzActivity extends AppCompatActivity {
                                 for(int i=0;i<stringsResponses.length;i++) {
                                     View viewButton = LayoutInflater.from(QuizzActivity.this).inflate(R.layout.item_button, null);
 
-                                    Button buttonResponse = viewButton.findViewById(R.id.buttonResponse);
+                                    final Button buttonResponse = viewButton.findViewById(R.id.buttonResponse);
                                     buttonResponse.setText(stringsResponses[i]);
 
-                                    buttonResponse.setOnClickListener(new View.OnClickListener() {
+                                  buttonResponse.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
 
-                                            
+
+                                    //TODO: passage a la question suivante
+                                    //TODO: gestion du score
 
                                         }
                                     });
-
                                     linearLayoutButtons.addView(viewButton);
                                 }
-
-
-
-
-
                             }else{
 
                             }
