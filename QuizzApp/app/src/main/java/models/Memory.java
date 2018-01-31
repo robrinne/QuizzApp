@@ -26,17 +26,17 @@ public class Memory
                 String nb = "";
                 switch (j)
                 {
-                    case 0: nb = "001";
+                    case 0: nb = Constant.NUMPOKEDEX_POKEMON1;
                     break;
-                    case 1: nb = "004";
+                    case 1: nb = Constant.NUMPOKEDEX_POKEMON2;
                     break;
-                    case 2: nb = "007";
+                    case 2: nb = Constant.NUMPOKEDEX_POKEMON3;
                     break;
-                    case 3: nb = "025";
+                    case 3: nb = Constant.NUMPOKEDEX_POKEMON4;
                     break;
-                    case 4: nb = "149";
+                    case 4: nb = Constant.NUMPOKEDEX_POKEMON5;
                     break;
-                    case 5: nb = "251";
+                    case 5: nb = Constant.NUMPOKEDEX_POKEMON6;
                     break;
                     default: nb = "150";
                     break;
