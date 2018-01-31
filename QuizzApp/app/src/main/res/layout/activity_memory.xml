@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="aston.fr.quizzapp.memory.MemoryActivity"
+    android:background="@drawable/background_android"
     android:orientation="vertical">
 
     <TextView android:text="MEMORY"
@@ -12,14 +13,13 @@
         android:textSize="60dp"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"/>
+        android:layout_height="wrap_content"/>
 
     <GridView android:id="@+id/gridMemoryMap"
         android:numColumns="2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        
+
     </GridView>
 
     <TextView android:text="Nombre d'essais : "
