@@ -17,7 +17,7 @@ public class Memory
         initMap();
     }
 
-    public void initMap()
+    private void initMap()
     {
         for (int i = 0; i < 2; i++)
         {
@@ -29,7 +29,7 @@ public class Memory
         shuffleMap();
     }
 
-    public void shuffleMap()
+    private void shuffleMap()
     {
         for (int i=0; i<50; i++)
         {
@@ -37,7 +37,7 @@ public class Memory
         }
     }
 
-    public void shuffleOnce()
+    private void shuffleOnce()
     {
         int r = (int)((map.size()-1)*Math.random());
         Carte tmp = map.get(r);
@@ -50,19 +50,7 @@ public class Memory
         map.set(r2, tmp);
     }
 
-    @Override public String toString()
-    {
-        String s = "";
-        int k = 0;
-        for (int i=0; i < Constant.MEMORY_SIZE_HEIGHT; i++)
-        {
-            s += "|";
-            for (int j=0; j< Constant.MEMORY_SIZE_WIDTH; j++)
-            {
-                s += map.get(k++).getId() + "|";
-            }
-            s += "\n";
-        }
-        return s;
+    public List<Carte> getMap() {
+        return map;
     }
 }

@@ -4,11 +4,20 @@ public class Carte
 {
     private int id;
     private String imgUrl;
+    private boolean found;
+
+    public Carte()
+    {
+        this.id = 0;
+        this.imgUrl = "";
+        this.found = false;
+    }
 
     public Carte(int id, String imgUrl)
     {
         this.id = id;
         this.imgUrl = imgUrl;
+        this.found = false;
     }
 
     public int getId()
@@ -30,4 +39,11 @@ public class Carte
     {
         this.imgUrl = imgUrl;
     }
+
+    public void setFounded()
+    {
+        found = true;
+    }
+
+
 }
