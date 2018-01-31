@@ -11,4 +11,5 @@ public class Constant
             "http://www.freepngimg.com/download/pokemon/10-2-pokemon-picture.png",
             "https://mangajam.com/wp-content/uploads/2015/06/How_Draw_Umbreon_Pokemon.jpg",
             "https://www.pokegoking.com/wp-content/uploads/Eevee-300x300.png"};
+    public static final String URL ="https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple";
 }
