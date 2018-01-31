@@ -1,9 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/orange_background"
     tools:context="aston.fr.quizzapp.settings.SettingsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textViewTitleSettings"
+        android:layout_marginTop="40dp"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="60dp"
+        android:textColor="@color/blanc"
+        android:text="Réglages"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="45dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type de questions"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textColor="@color/buttonMenu2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/checkboxTypeBoolean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/CheckBoxTheme"
+                    android:text=" Vrai ou faux"
+                    android:textColor="@color/blanc"
+                    android:layout_marginLeft="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/checkboxTypeMultiple"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/CheckBoxTheme"
+                    android:text=" Choix multiple"
+                    android:textColor="@color/blanc"
+                    android:layout_marginLeft="10dp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textAlignment="center"
+                android:textColor="@color/buttonMenu2"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinnerQuestionNumber"
+                android:layout_width="90dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:dropDownSelector="@color/buttonMenu2"
+                android:dropDownWidth="90dp"
+                android:textAlignment="center"
+                android:popupBackground="@color/blanc"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Difficulté"
+                android:textAlignment="center"
+                android:textColor="@color/buttonMenu2"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinnerDifficulty"
+                android:layout_width="130dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:dropDownSelector="@color/buttonMenu2"
+                android:dropDownWidth="130dp"
+                android:textAlignment="center"
+                android:popupBackground="@color/blanc"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Theme"
+                android:textAlignment="center"
+                android:textColor="@color/buttonMenu2"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/spinnerTheme"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:dropDownSelector="@color/buttonMenu2"
+                android:dropDownWidth="match_parent"
+                android:textAlignment="center"
+                android:popupBackground="@color/blanc"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

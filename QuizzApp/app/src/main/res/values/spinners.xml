@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="question_number_array">
+        <item value="5">5</item>
+        <item value="10">10</item>
+    </string-array>
+
+    <string-array name="question_difficulty">
+        <item value="easy">Facile</item>
+        <item value="medium">Moyen</item>
+        <item value="hard">Difficile</item>
+    </string-array>
+
+    <string-array name="question_theme">
+        <item value="10">Books</item>
+        <item value="11">Film</item>
+        <item value="12">Music</item>
+        <item value="14">Television</item>
+        <item value="15">Video games</item>
+        <item value="17">Science Nature</item>
+        <item value="18">Computer Science</item>
+    </string-array>
+
+</resources>
