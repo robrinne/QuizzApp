@@ -4,4 +4,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="CheckBoxTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#0059b3</item>
+        <item name="colorControlActivated">#00264d</item>
+    </style>
 </resources>
