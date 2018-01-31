@@ -21,9 +21,27 @@ public class Memory
     {
         for (int i = 0; i < 2; i++)
         {
-            for (int j = 0; j < Constant.MEMORY_URLS.length; j++)
+            for (int j = 0; j < Constant.MEMORY_SIZE_WIDTH * Constant.MEMORY_SIZE_HEIGHT / 2; j++)
             {
-                map.add(new Carte(j, Constant.MEMORY_URLS[j]));
+                String nb = "";
+                switch (j)
+                {
+                    case 0: nb = "001";
+                    break;
+                    case 1: nb = "004";
+                    break;
+                    case 2: nb = "007";
+                    break;
+                    case 3: nb = "025";
+                    break;
+                    case 4: nb = "149";
+                    break;
+                    case 5: nb = "251";
+                    break;
+                    default: nb = "150";
+                    break;
+                }
+                map.add(new Carte(j, String.format(Constant.MEMORY_URLS, nb)));
             }
         }
         shuffleMap();

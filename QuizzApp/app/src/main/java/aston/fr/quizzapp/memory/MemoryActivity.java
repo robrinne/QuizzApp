@@ -1,5 +1,6 @@
 package aston.fr.quizzapp.memory;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,6 +43,8 @@ public class MemoryActivity extends AppCompatActivity
 
     public void restartMemory(View view)
     {
-        this.initMemory();
+        Intent myIntent = new Intent(MemoryActivity.this, MemoryActivity.class);
+        startActivity(myIntent);
+        finish();
     }
 }
