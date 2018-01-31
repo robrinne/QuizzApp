@@ -3,7 +3,7 @@ package utils;
 public class Constant
 {
     public static int MEMORY_SIZE_WIDTH = 4;
-    public static int MEMORY_SIZE_HEIGHT = 4;
+    public static int MEMORY_SIZE_HEIGHT = 3;
     public static String[] MEMORY_URLS = new String[]{
             "https://cdn.ndtv.com/tech/images/gadgets/pikachu_hi_pokemon.jpg",
             "https://i.ebayimg.com/images/i/400724539879-0-1/s-l1000.jpg",
