@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="aston.fr.quizzapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,9 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".quizz.QuizzActivity" />
+        <activity android:name=".ui.main.MainActivity$QuizzActivity" />
         <activity android:name=".memory.MemoryActivity" />
-        <activity android:name=".settings.SettingsActivity"></activity>
+        <activity android:name=".settings.SettingsActivity" />
+        <activity android:name=".ui.main.QuizzActivity"></activity>
     </application>
 
 </manifest>
