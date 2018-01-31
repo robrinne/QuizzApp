@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background_android"
-    tools:context="aston.fr.quizzapp.MainActivity">
+    tools:context="aston.fr.quizzapp.ui.main.MainActivity">
 
 
     <TextView
@@ -26,6 +26,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/buttonMemory"
             android:layout_marginTop="100dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
             android:background="@drawable/shape"/>
 
         <Button
+            android:id="@+id/buttonQuizz"
             android:layout_marginTop="80dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,6 +50,7 @@
             android:background="@drawable/shape"/>
 
         <Button
+            android:id="@+id/buttonSettings"
             android:layout_marginTop="80dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
