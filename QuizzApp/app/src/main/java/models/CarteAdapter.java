@@ -24,7 +24,7 @@ import utils.Constant;
  */
 
 public class CarteAdapter extends ArrayAdapter<Carte> {
-
+    public static int nbReturned = 0;
     private int resId;
 
     public CarteAdapter(@NonNull Context context, int resource, @NonNull List<Carte> objects)
@@ -39,6 +39,7 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
 
         if(convertView == null)
         {
+            nbReturned = 0;
             convertView = LayoutInflater.from(getContext()).inflate(resId, null);
 
             // instance de classe
@@ -62,12 +63,17 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
             Picasso.with(getContext())
                     .load(item.getImgUrl())
                     .into(myViewHolder.imageViewCarte);
-            myViewHolder.buttonCarte.setText(Integer.valueOf(item.getId()).toString());
+            //myViewHolder.buttonCarte.setText(Integer.valueOf(item.getId()).toString());
 
-            myViewHolder.buttonCarte.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    view.setVisibility(View.INVISIBLE);
+            myViewHolder.buttonCarte.setOnClickListener(new View.OnClickListener()
+            {
+                @Override public void onClick(View view)
+                {
+                    if (nbReturned < 2)
+                    {
+                        view.setVisibility(View.INVISIBLE);
+                        nbReturned++;
+                    }
                 }
             });
         }
