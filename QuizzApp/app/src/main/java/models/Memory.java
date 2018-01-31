@@ -1,65 +1,68 @@
 package models;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import utils.Constant;
 
 public class Memory
 {
-    private Carte[][] map;
+    private List<Carte> map;
 
-    public void Init()
+    public void init()
     {
-        this.map = new Carte[Constant.MEMORY_SIZE_WIDTH][Constant.MEMORY_SIZE_HEIGHT];
-        Log.e("INIT","TEST");
-        InitMap();
-        Log.e("INIT","FINISH");
+        this.map = new ArrayList<>();
+        initMap();
     }
 
-    public void InitMap()
+    public void initMap()
     {
-        int l = 0;
-        int h = 0;
-        for (int i = 0; i < (Constant.MEMORY_SIZE_HEIGHT / 2) * Constant.MEMORY_SIZE_WIDTH; i++)
+        for (int i = 0; i < 2; i++)
         {
-            Log.e("TEST", ""+i);
-            this.map[l][h] = new Carte(i, Constant.MEMORY_URLS[i]);
-            this.map[l][h + (Constant.MEMORY_SIZE_HEIGHT / 2)] = new Carte(i, Constant.MEMORY_URLS[i]);
-            if (h < Constant.MEMORY_SIZE_WIDTH/2)
+            for (int j = 0; j < Constant.MEMORY_URLS.length; j++)
             {
-                h++;
-            }
-            else if (l < (Constant.MEMORY_SIZE_HEIGHT))
-            {
-                h = 0;
-                l++;
+                map.add(new Carte(j, Constant.MEMORY_URLS[j]));
             }
         }
+        shuffleMap();
+    }
+
+    public void shuffleMap()
+    {
+        for (int i=0; i<50; i++)
+        {
+            shuffleOnce();
+        }
+    }
+
+    public void shuffleOnce()
+    {
+        int r = (int)((map.size()-1)*Math.random());
+        Carte tmp = map.get(r);
+        int r2 = (int)((map.size()-1)*Math.random());
+        while (r == r2)
+        {
+            r2 = (int)((map.size()-1)*Math.random());
+        }
+        map.set(r, map.get(r2));
+        map.set(r2, tmp);
     }
 
     @Override public String toString()
     {
         String s = "";
-        for (int i = 0; i < Constant.MEMORY_SIZE_WIDTH; i++)
+        int k = 0;
+        for (int i=0; i < Constant.MEMORY_SIZE_HEIGHT; i++)
         {
-            s += "| ";
-            for (int j = 0; j < Constant.MEMORY_SIZE_HEIGHT; j++)
+            s += "|";
+            for (int j=0; j< Constant.MEMORY_SIZE_WIDTH; j++)
             {
-                if (this.getMap()[i][j] != null)
-                {
-                    s += this.getMap()[i][j].getId() + " |";
-                }
-                else
-                {
-                    s += "null |";
-                }
+                s += map.get(k++).getId() + "|";
             }
             s += "\n";
         }
         return s;
-    }
-
-    public Carte[][] getMap()
-    {
-        return map;
     }
 }
