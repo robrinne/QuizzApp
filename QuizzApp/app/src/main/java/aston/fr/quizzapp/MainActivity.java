@@ -7,14 +7,14 @@ import android.widget.TextView;
 import models.Memory;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView test;
+    private TextView textViewTitleApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        test = findViewById(R.id.test);
+        textViewTitleApp = findViewById(R.id.textViewTitleApp);
         /*Memory mem = new Memory();
         mem.Init();
         test.setText(mem.toString());*/
