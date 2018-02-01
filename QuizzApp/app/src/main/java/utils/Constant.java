@@ -12,5 +12,8 @@ public class Constant
     public static String NUMPOKEDEX_POKEMON4 = "025";
     public static String NUMPOKEDEX_POKEMON5 = "149";
     public static String NUMPOKEDEX_POKEMON6 = "251";
-
+    public static String NB_QUESTION = "10";
+    public static String TYPE_QUESTION = "multiple";
+    public static String DIFFICULTY_QUESTION = "easy";
+    public static String THEME_QUESTION = "10"; // livre par défaut
 }
