@@ -114,25 +114,19 @@ public class QuizzActivity extends AppCompatActivity  {
 
                                             Button button = (Button) v;
 
-                                            if (resultsQuizz.getCorrect_answer().equals(button.getText().toString() )){
-
+                                                if (resultsQuizz.getCorrect_answer().equals(button.getText().toString() )){
                                                 point++;
-
                                                 Toast.makeText(getApplicationContext(), "Bonne Reponse ! " + "\n"+ "Votre score est de : " + point , Toast.LENGTH_LONG).show();
-
-
-
-
                                                 }else{
-
                                                 Toast.makeText(getApplicationContext(), "FAUX !"+"\n" +"La bonne reponse était " + resultsQuizz.getCorrect_answer() + "\n" + "Votre score est de : " + point , Toast.LENGTH_LONG).show();
-                                                Intent intent = new Intent(QuizzActivity.this, QuizzActivity.class);
-                                                startActivity(intent);
+                                                }
 
-                                            }
 
 
                                         }
+
+
+
                                     });
                                     linearLayoutButtons.addView(viewButton);
                                 }
