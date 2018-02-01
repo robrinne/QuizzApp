@@ -27,6 +27,9 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
     private View carte2 = null;
     private String carte1ID = "";
     private String carte2ID = "";
+    private int nbTrouves = 0;
+    private int nbRates = 0;
+    private int nbCoups = 0;
 
     public CarteAdapter(@NonNull Context context, int resource, @NonNull List<Carte> objects)
     {
@@ -88,7 +91,13 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
                                     if (!carte1ID.equals(carte2ID)) {
                                         carte1.setVisibility(View.VISIBLE);
                                         carte2.setVisibility(View.VISIBLE);
+                                        nbRates++;
                                     }
+                                    else
+                                    {
+                                        nbTrouves++;
+                                    }
+                                    nbCoups++;
                                     carte1 = null;
                                     carte2 = null;
                                     carte1ID = "";
@@ -105,17 +114,23 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
         return convertView;
     }
 
-    public void resetAll()
-    {
-        for (int i=0; i < Constant.MEMORY_SIZE_HEIGHT * Constant.MEMORY_SIZE_WIDTH; i++)
-        {
-
-        }
-    }
-
     private class ViewHolder {
         ImageView imageViewCarte;
         Button buttonCarte;
     }
 
+    public int getNbTrouves()
+    {
+        return nbTrouves;
+    }
+
+    public int getNbRates()
+    {
+        return nbRates;
+    }
+
+    public int getNbCoups()
+    {
+        return nbCoups;
+    }
 }

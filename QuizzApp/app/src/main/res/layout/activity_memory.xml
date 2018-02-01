@@ -22,29 +22,35 @@
 
     </GridView>
 
-    <TextView android:text="Nombre d'essais : "
+    <TextView android:text="Ratées : "
         android:id="@+id/textViewNbEssais"
         android:layout_margin="5dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/blanc" />
 
-    <TextView android:text="Nombre des paires trouvées : "
+    <TextView android:text="Trouvées : "
         android:id="@+id/textViewNbFound"
         android:layout_margin="5dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/blanc" />
+
+    <TextView android:text="Nombre de coups : "
+        android:id="@+id/textViewNbCoups"
+        android:layout_margin="5dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blanc" />
 
     <Button android:text="Recommencer"
         android:onClick="restartMemory"
         android:layout_margin="5dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textViewNbQuestions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/buttonMenu2" />
 </LinearLayout>
