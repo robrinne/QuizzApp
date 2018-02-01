@@ -1,5 +1,6 @@
 package aston.fr.quizzapp.ui.main;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,7 +28,7 @@ import utils.Constant;
 import utils.FastDialog;
 import utils.Network;
 
-public class QuizzActivity extends AppCompatActivity {
+public class QuizzActivity extends AppCompatActivity  {
 
 
     private TextView textViewCategory;
@@ -61,7 +63,7 @@ public class QuizzActivity extends AppCompatActivity {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
-                        public void onResponse(String response) {
+                        public void onResponse(final String response) {
 
                             Log.e(TAG, "json " + response);
 
@@ -84,6 +86,7 @@ public class QuizzActivity extends AppCompatActivity {
                                     stringsResponses[i+1] = resultsQuizz.getIncorrect_answers()[i];
                                 }
 
+
                                 // TODO : random shuffle du tableau
 
                                 // display buttons
@@ -93,15 +96,33 @@ public class QuizzActivity extends AppCompatActivity {
                                     View viewButton = LayoutInflater.from(QuizzActivity.this).inflate(R.layout.item_button, null);
 
                                     final Button buttonResponse = viewButton.findViewById(R.id.buttonResponse);
-                                    buttonResponse.setText(stringsResponses[i]);
+                                        buttonResponse.setText(stringsResponses[i]);
+
+
+
+
 
                                   buttonResponse.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
 
+                                            Button button = (Button) v;
 
-                                    //TODO: passage a la question suivante
-                                    //TODO: gestion du score
+                                            if (resultsQuizz.getCorrect_answer().equals(button.getText().toString() )){
+
+                                                Toast.makeText(getApplicationContext(), "Correct !", Toast.LENGTH_LONG).show();
+
+                                                
+
+
+
+                                            }else{
+
+                                                Toast.makeText(getApplicationContext(), "FAUX ! la bonne reponse était " + resultsQuizz.getCorrect_answer() , Toast.LENGTH_LONG).show();
+
+
+                                            }
+
 
                                         }
                                     });
