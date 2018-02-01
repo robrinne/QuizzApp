@@ -1,9 +1,7 @@
-package models;
-import android.util.Log;
+package aston.fr.quizzapp.models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import utils.Constant;
 
@@ -19,29 +17,32 @@ public class Memory
 
     private void initMap()
     {
+        int k = 0;
         for (int i = 0; i < 2; i++)
         {
             for (int j = 0; j < Constant.MEMORY_SIZE_WIDTH * Constant.MEMORY_SIZE_HEIGHT / 2; j++)
             {
-                String nb = "";
+                String nb;
                 switch (j)
                 {
                     case 0: nb = Constant.NUMPOKEDEX_POKEMON1;
-                    break;
+                        break;
                     case 1: nb = Constant.NUMPOKEDEX_POKEMON2;
-                    break;
+                        break;
                     case 2: nb = Constant.NUMPOKEDEX_POKEMON3;
-                    break;
+                        break;
                     case 3: nb = Constant.NUMPOKEDEX_POKEMON4;
-                    break;
+                        break;
                     case 4: nb = Constant.NUMPOKEDEX_POKEMON5;
-                    break;
+                        break;
                     case 5: nb = Constant.NUMPOKEDEX_POKEMON6;
-                    break;
+                        break;
                     default: nb = "150";
-                    break;
+                        break;
                 }
-                map.add(new Carte(j, String.format(Constant.MEMORY_URLS, nb)));
+                Carte c = new Carte(j, String.format(Constant.MEMORY_URLS, nb));
+                c.setPosition(k++);
+                map.add(c);
             }
         }
         shuffleMap();
@@ -64,7 +65,10 @@ public class Memory
         {
             r2 = (int)((map.size()-1)*Math.random());
         }
-        map.set(r, map.get(r2));
+        Carte tmp2 = map.get(r2);
+        tmp2.setPosition(r);
+        tmp.setPosition(r2);
+        map.set(r, tmp2);
         map.set(r2, tmp);
     }
 

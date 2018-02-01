@@ -4,18 +4,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import aston.fr.quizzapp.R;
-import models.Carte;
-import models.CarteAdapter;
-import models.Memory;
+import aston.fr.quizzapp.models.Carte;
+import aston.fr.quizzapp.models.CarteAdapter;
+import aston.fr.quizzapp.models.Memory;
 import utils.Constant;
 
 public class MemoryActivity extends AppCompatActivity
@@ -33,6 +29,7 @@ public class MemoryActivity extends AppCompatActivity
         initMemory();
         List<Carte> cartes = memory.getMap();
         gridMemoryMap.setAdapter(new CarteAdapter(MemoryActivity.this, R.layout.item_carte, cartes));
+
     }
 
     private void initMemory()
