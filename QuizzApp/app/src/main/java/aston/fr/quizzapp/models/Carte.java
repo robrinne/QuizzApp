@@ -1,16 +1,20 @@
-package models;
+package aston.fr.quizzapp.models;
 
 public class Carte
 {
     private String id;
     private String imgUrl;
     private boolean found;
+    private boolean visible;
+    private int position;
 
     public Carte()
     {
         this.id = "";
         this.imgUrl = "";
         this.found = false;
+        this.visible = false;
+        this.position = 0;
     }
 
     public Carte(int id, String imgUrl)
@@ -29,6 +33,8 @@ public class Carte
         }
         this.imgUrl = imgUrl;
         this.found = false;
+        this.visible = false;
+        this.position = 0;
     }
 
     public String getId()
@@ -56,5 +62,26 @@ public class Carte
         found = true;
     }
 
+    public boolean isFound()
+    {
+        return found;
+    }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public void setPosition(int position)
+    {
+        this.position = position;
+    }
+
+    public int getPosition()
+    {
+        return position;
+    }
 }
