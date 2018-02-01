@@ -2,6 +2,7 @@ package aston.fr.quizzapp.ui.main;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class QuizzActivity extends AppCompatActivity  {
     private TextView textViewCategory;
     private TextView textViewQuestion;
     private LinearLayout linearLayoutButtons;
-    private TextView score;
+
     public static final String TAG = "Test";
     private Dialog dialog;
     private int point = 0;
@@ -50,7 +51,7 @@ public class QuizzActivity extends AppCompatActivity  {
         textViewQuestion = findViewById(R.id.textViewQuestion);
         linearLayoutButtons = findViewById(R.id.linearLayoutButtons);
 
-        score = findViewById(R.id.textViewPoint);
+
         dialog = FastDialog.showProgressDialog(QuizzActivity.this,"Chargement");
 
 
@@ -77,6 +78,10 @@ public class QuizzActivity extends AppCompatActivity  {
                                 final Results resultsQuizz = quizz.getResults().get(number);
 
                                 textViewCategory.setText(resultsQuizz.getCategory());
+
+
+
+
                                 textViewQuestion.setText(resultsQuizz.getQuestion());
 
                                 final String[] stringsResponses = new String[1 + resultsQuizz.getIncorrect_answers().length];
@@ -106,20 +111,23 @@ public class QuizzActivity extends AppCompatActivity  {
                                         @Override
                                         public void onClick(View v) {
 
+
                                             Button button = (Button) v;
 
                                             if (resultsQuizz.getCorrect_answer().equals(button.getText().toString() )){
 
-                                                Toast.makeText(getApplicationContext(), "Correct !", Toast.LENGTH_LONG).show();
+                                                point++;
 
-                                                
+                                                Toast.makeText(getApplicationContext(), "Bonne Reponse ! " + "\n"+ "Votre score est de : " + point , Toast.LENGTH_LONG).show();
 
 
 
-                                            }else{
 
-                                                Toast.makeText(getApplicationContext(), "FAUX ! la bonne reponse était " + resultsQuizz.getCorrect_answer() , Toast.LENGTH_LONG).show();
+                                                }else{
 
+                                                Toast.makeText(getApplicationContext(), "FAUX !"+"\n" +"La bonne reponse était " + resultsQuizz.getCorrect_answer() + "\n" + "Votre score est de : " + point , Toast.LENGTH_LONG).show();
+                                                Intent intent = new Intent(QuizzActivity.this, QuizzActivity.class);
+                                                startActivity(intent);
 
                                             }
 
