@@ -1,5 +1,6 @@
 package aston.fr.quizzapp.models;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import aston.fr.quizzapp.R;
+import aston.fr.quizzapp.memory.MemoryActivity;
 import utils.Constant;
 
 public class CarteAdapter extends ArrayAdapter<Carte> {
@@ -75,29 +77,34 @@ public class CarteAdapter extends ArrayAdapter<Carte> {
                             carte1 = view;
                             carte1ID = item.getId();
                         }
-                        else
-                        {
+                        else {
                             carte2 = view;
                             carte2ID = item.getId();
-
-                            Timer timer = new Timer();
-                            timer.schedule(new TimerTask() {
-                                @Override
-                                public void run() {
-                                    if (!carte1ID.equals(carte2ID))
+                            new Activity().runOnUiThread(
+                            new Runnable()
+                            {
+                                @Override public void run()
+                                {
+                                    Timer timer = new Timer();
+                                    timer.schedule(new TimerTask()
                                     {
-                                        carte1.setVisibility(View.VISIBLE);
-                                        carte2.setVisibility(View.VISIBLE);
-                                    }
-                                    carte1 = null;
-                                    carte2 = null;
-                                    carte1ID = "";
-                                    carte2ID = "";
-                                    nbReturned = 0;
+                                        @Override public void run()
+                                        {
+                                            if (!carte1ID.equals(carte2ID))
+                                            {
+                                                carte1.setVisibility(View.VISIBLE);
+                                                carte2.setVisibility(View.VISIBLE);
+                                            }
+                                            carte1 = null;
+                                            carte2 = null;
+                                            carte1ID = "";
+                                            carte2ID = "";
+                                            nbReturned = 0;
+                                        }
+                                    }, 1000);
                                 }
-                            }, 1000);
+                            });
                         }
-
                     }
                 }
             });
