@@ -67,6 +67,7 @@ public class MemoryActivity extends AppCompatActivity
                                 if (carteAdapter.getNbTrouves() == 6)
                                 {
                                     Toast.makeText(getApplicationContext(), "Félicitations ! Vous avez gagné en seulement " + String.valueOf(carteAdapter.getNbCoups()) + " coups !", Toast.LENGTH_LONG).show();
+                                    isRunning = false;
                                 }
                             }
                         });
