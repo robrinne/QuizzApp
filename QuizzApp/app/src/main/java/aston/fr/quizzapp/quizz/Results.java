@@ -1,10 +1,12 @@
 package aston.fr.quizzapp.quizz;
 
+import java.io.Serializable;
+
 /**
  * Created by tanguye on 31/01/2018.
  */
 
-public class Results {
+public class Results implements Serializable {
 
 
 

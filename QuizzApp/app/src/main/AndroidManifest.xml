@@ -22,7 +22,8 @@
         <activity android:name=".ui.main.MainActivity$QuizzActivity" />
         <activity android:name=".memory.MemoryActivity" />
         <activity android:name=".settings.SettingsActivity" />
-        <activity android:name=".ui.main.QuizzActivity"></activity>
+        <activity android:name=".ui.main.QuizzActivity" />
+        <activity android:name=".quizz.LastQuizzActivity"></activity>
     </application>
 
 </manifest>

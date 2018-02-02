@@ -1,12 +1,13 @@
 package aston.fr.quizzapp.quizz;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by tanguye on 31/01/2018.
  */
 
-public class Response_code {
+public class Response_code implements Serializable {
     private int response_code;
     private List<Results> results;
 

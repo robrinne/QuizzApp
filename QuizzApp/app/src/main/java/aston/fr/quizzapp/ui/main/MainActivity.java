@@ -34,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Constant.SCORE_QUIZZ = 0;
+
         textViewTitleApp = findViewById(R.id.textViewTitleApp);
-        /*Memory mem = new Memory();
-        mem.Init();
-        test.setText(mem.toString());*/
 
         buttonMemory = findViewById(R.id.buttonMemory);
         buttonQuizz = findViewById(R.id.buttonQuizz);
