@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="aston.fr.quizzapp.memory.MemoryActivity"
-    android:background="@drawable/background_android"
     android:orientation="vertical">
 
     <TextView android:text="MEMORY"

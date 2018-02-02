@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -63,6 +64,10 @@ public class MemoryActivity extends AppCompatActivity
                                 textViewNbEssais.setText("Ratées : " + String.valueOf(carteAdapter.getNbRates()));
                                 textViewNbFound.setText("Trouvées : " + String.valueOf(carteAdapter.getNbTrouves()));
                                 textViewNbCoups.setText("Nombre de coups : " + String.valueOf(carteAdapter.getNbCoups()));
+                                if (carteAdapter.getNbTrouves() == 6)
+                                {
+                                    Toast.makeText(getApplicationContext(), "Félicitations ! Vous avez gagné en seulement " + String.valueOf(carteAdapter.getNbCoups()) + " coups !", Toast.LENGTH_LONG).show();
+                                }
                             }
                         });
                         Thread.sleep(1000);
